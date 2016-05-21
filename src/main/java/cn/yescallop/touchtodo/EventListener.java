@@ -59,6 +59,7 @@ public class EventListener implements Listener {
             String command = plugin.getBlockCommand(block);
             if (command != null) {
                 event.setCancelled();
+                command = command.replaceAll("@p", player.getName());
                 if (plugin.isBlockCommandOp(block) && !player.isOp()) {
                     player.setOp(true);
                     Server.getInstance().dispatchCommand(player, command);
