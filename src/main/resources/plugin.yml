@@ -1,0 +1,14 @@
+name: TouchToDo
+version: "1.0.0"
+api: ["1.0.0"]
+author: Scallop
+description: Touch block to execute command
+main: cn.yescallop.touchtodo.TouchToDo
+
+permissions:
+ touchtodo.command.touchtodo:
+  description: "Allows the user to use /touchtodo command"
+  default: op
+ touchtodo.break.commandblock:
+  description: "Allows the player to break command block"
+  default: op
