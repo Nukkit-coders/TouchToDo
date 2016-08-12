@@ -23,19 +23,11 @@ public class EventListener implements Listener {
         lang = plugin.getLanguage();
     }
     
-    @EventHandler(priority = EventPriority.LOWEST)
+    @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (event.getAction() != PlayerInteractEvent.RIGHT_CLICK_BLOCK) return;
         Player player = event.getPlayer();
         Block block = event.getBlock();
-        int distance = Server.getInstance().getSpawnRadius();
-        if (!player.isOp() && distance > -1) {
-            Vector2 t = new Vector2(block.x, block.z);
-            Vector2 s = new Vector2(block.level.getSpawnLocation().x, block.level.getSpawnLocation().z);
-            if (Server.getInstance().getOps().getAll().isEmpty() && !(t.distance(s) <= distance)) {
-                return;
-            }
-        }
         if (plugin.isWaiting(player)) {
             event.setCancelled();
             if (plugin.isRemoveWaiting(player)) {
