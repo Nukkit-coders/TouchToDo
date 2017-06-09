@@ -25,7 +25,7 @@ public class EventListener implements Listener {
     
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
-        if (event.getAction() != PlayerInteractEvent.RIGHT_CLICK_BLOCK) return;
+        if (event.getAction() != PlayerInteractEvent.Action.RIGHT_CLICK_BLOCK) return;
         Player player = event.getPlayer();
         Block block = event.getBlock();
         if (plugin.isWaiting(player)) {
